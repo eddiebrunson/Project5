@@ -15,7 +15,7 @@ pipeline {
 					dir("blue") {
 						sh '''
 							docker login -u ${USERNAME} -p ${PASSWORD}
-							docker build --tag=blue .
+							docker build --tag=bluedeploymentimage .
 						'''
           }
 
@@ -25,7 +25,7 @@ pipeline {
           dir(path: 'green') {
             sh '''
 							docker login -u ${USERNAME} -p ${PASSWORD}
-							docker build --tag greendeploymentimage.
+							docker build --tag greendeploymentimage .
 						'''
           }
 
