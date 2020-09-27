@@ -65,7 +65,6 @@ pipeline {
       steps {
         withAWS(region: 'us-east-1', credentials: 'aws_devops') {
           sh '''
-						kubectl config current-context
 						kubectl config use-context arn:aws:eks:us-east-1:269387989609:cluster/devOps-Capstone
 					'''
         }
