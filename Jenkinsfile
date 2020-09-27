@@ -4,8 +4,8 @@ pipeline {
 
 		stage('Lint Blue/Green HTML') {
 			steps {
-				sh 'tidy -q -e ./blue/*.html'
-				sh 'tidy -q -e ./green/*.html'
+				sh 'tidy -q -e ./blue/app_blue*.html'
+				sh 'tidy -q -e ./green/app_green*.html'
 			}
 		}
 		
