@@ -1,12 +1,11 @@
 pipeline {
-<<<<<<< HEAD
 	agent any
 	stages {
 
 		stage('Lint Blue/Green HTML') {
 			steps {
-				sh 'tidy -q -e ./blue/app_blue*.html'
-				sh 'tidy -q -e ./green/app_green*.html'
+				sh 'tidy -q -e ./blue/app_blue/*.html'
+				sh 'tidy -q -e ./green/app_green/*.html'
 			}
 		}
 		
@@ -15,38 +14,6 @@ pipeline {
 				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker_hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]){
 					dir("blue") {
 						sh '''
-||||||| e0d92a1
-	agent any
-	stages {
-
-		stage('Lint Blue/Green HTML') {
-			steps {
-				sh 'tidy -q -e ./blue/*.html'
-				sh 'tidy -q -e ./green/*.html'
-			}
-		}
-		
-		stage('Build Docker  Blue/Green Images') {
-			steps {
-				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker_hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]){
-					dir("blue") {
-						sh '''
-=======
-  agent any
-  stages {
-    stage('Lint Blue/Green HTML') {
-      steps {
-        sh 'tidy -q -e ./blue/*.html'
-        sh 'tidy -q -e ./green/*.html'
-      }
-    }
-
-    stage('Build Docker  Blue/Green Images') {
-      steps {
-        withCredentials(bindings: [[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker_hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-          dir(path: 'blue') {
-            sh '''
->>>>>>> bd9d2cb65c0bcfe25c99fa9ab3c091f98cf92649
 							docker login -u ${USERNAME} -p ${PASSWORD}
 							docker build --tag=blue .
 						'''
