@@ -1,4 +1,9 @@
 FROM nginx
 
-COPY app_green/build /user/share/nginx/html
+## Step 1:
+RUN rm /usr/share/nginx/html/index.html
+
+## Step 2: 
+# Copy source code to working directory
+COPY app_green/ /user/share/nginx/html
 
