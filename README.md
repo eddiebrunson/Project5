@@ -1,9 +1,31 @@
 # Cloud DevOps Capstone Project
 _____
 
+This is the final project of [Udacity's Cloud Dev Ops Engineer Nanodegree](https://www.udacity.com/course/cloud-dev-ops-nanodegree--nd9991).
 
+This project allowed us to define the scope and select the right deployment strategy based on different business requirements. 
 
+The project allows me to apply the skills and knowledge I have developed throughout this Nanodegree program. Which includes the following: 
 
+:star: Working in AWS
+:start: Using Jenkins to implement Continuous Integration and Continuous Deployment 
+:star: Building pipelines 
+:star: Working with Ansible and CloudFormation to deploy clusters
+:star: Building Kubernetes clusters
+:star: Building Docker containers in pipelines
+
+I chose to develop a *CI/CD* pipeline with **blue/green** deployment. 
+
+I configured my *Continuous Integration* steps using my **Jenkinsfile**. It includes *typographical checking* 
+
+Once the *Continuous Integration* is completed the *Continuous Deployment* takes over the following steps:
+
+* Pushing the built Docker container(s) to the Docker repository
+* Deploying the docker containers to a small *Kubernetes cluster* 
+
+![Completed Pipeline](screenshots/completed_pipeline.png)
+
+Please see screenshots folder for more images
 
 
 
